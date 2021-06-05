@@ -50,7 +50,7 @@ let QYWX_KEY = '';
 //此处填你企业微信应用消息的 值(详见文档 https://work.weixin.qq.com/api/doc/90000/90135/90236)，依次填上corpid的值,corpsecret的值,touser的值,agentid的值，素材库图片id（见https://github.com/LXK9301/jd_scripts/issues/519) 注意用,号隔开，例如：wwcff56746d9adwers,B-791548lnzXBE6_BWfxdf3kSTMJr9vFEPKAbh6WERQ,mingcheng,1000001,2COXgjH2UIfERF2zxrtUOKgQ9XklUqMdGSWLBoW_lSDAdafat
 //增加一个选择推送消息类型，用图文消息直接填写素材库图片id的值，用卡片消息就填写0(就是数字零)
 //(环境变量名 QYWX_AM)
-let QYWX_AM = 'ww23f4d9e1098d8997,CT5SbluYdopCGMYJiLK-5oInhX8theAzXm6-7z1w_MM,admin|be4db884d7a378532a90f27630cce91b,1000002,2G091Ufb7nfpEFav-Cu0uxcT47hUVDHFIB-m0f2KCV-avcOIbCt-xYghFba676jW7';
+let QYWX_AM = '';
 
 // =======================================iGot聚合推送通知设置区域===========================================
 //此处填您iGot的信息(推送key，例如：https://push.hellyw.com/XXXXXXXX)
