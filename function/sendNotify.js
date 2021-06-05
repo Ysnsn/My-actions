@@ -150,7 +150,7 @@ async function sendNotify(text, desp, params = {}) {
     qywxamNotify(text, desp), //企业微信应用消息推送
     iGotNotify(text, desp, params),//iGot
     CoolPush(text, desp)//QQ酷推
-    qmsg(text+desp)
+    qmsg(text, desp)
   ])
 }
 
@@ -199,12 +199,12 @@ function serverNotify(text, desp, timeout = 2100) {
   })
 }
 
-function qmsg(msg) {
+function qmsg(text, desp) {
   return new Promise(async (resolve) => {
     try {
       if (qmsgkey) {
         let url = `https://qmsg.zendee.cn/send/${QSCK}?msg=${encodeURI(
-          msg
+          text+desp
         )}`;
         let res = await $http.get(url);
         if (res.data.code == 0) {
