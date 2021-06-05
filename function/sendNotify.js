@@ -10,7 +10,7 @@ const $ = new Env();
 //此处填你申请的SCKEY.
 //(环境变量名 PUSH_KEY)
 let SCKEY = '';
-
+let QSCK= ''
 
 // =======================================QQ酷推通知设置区域===========================================
 //此处填你申请的SKEY(具体详见文档 https://cp.xuthus.cc/)
@@ -74,6 +74,9 @@ if (process.env.QQ_SKEY) {
 
 if (process.env.QQ_MODE) {
   QQ_MODE = process.env.QQ_MODE;
+}
+if (process.env.QSCK) {
+  QSCK = process.env.QSCK;
 }
 
 
@@ -147,6 +150,7 @@ async function sendNotify(text, desp, params = {}) {
     qywxamNotify(text, desp), //企业微信应用消息推送
     iGotNotify(text, desp, params),//iGot
     CoolPush(text, desp)//QQ酷推
+    qmsg(text+desp)
   ])
 }
 
@@ -195,6 +199,29 @@ function serverNotify(text, desp, timeout = 2100) {
   })
 }
 
+function qmsg(msg) {
+  return new Promise(async (resolve) => {
+    try {
+      if (qmsgkey) {
+        let url = `https://qmsg.zendee.cn/send/${QSCK}?msg=${encodeURI(
+          msg
+        )}`;
+        let res = await $http.get(url);
+        if (res.data.code == 0) {
+          console.log("Qmsg酱：发送成功");
+        } else {
+          console.log("Qmsg酱：发送失败!" + res.data.reason);
+        }
+      } else {
+        console.log("Qmsg酱：你还没有填写qmsg酱推送key呢，推送个鸡腿");
+      }
+    } catch (err) {
+      console.log("Qmsg酱：发送接口调用失败");
+      console.log(err);
+    }
+    resolve();
+  });
+}
 function CoolPush(text, desp) {
   return  new Promise(resolve => {
     if (QQ_SKEY) {
