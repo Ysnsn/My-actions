@@ -149,7 +149,7 @@ async function sendNotify(text, desp, params = {}) {
     qywxBotNotify(text, desp), //企业微信机器人
     qywxamNotify(text, desp), //企业微信应用消息推送
     iGotNotify(text, desp, params),//iGot
-    CoolPush(text, desp)//QQ酷推
+    CoolPush(text, desp),//QQ酷推
     qmsg(text, desp)
   ])
 }
