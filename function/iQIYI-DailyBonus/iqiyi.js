@@ -5,9 +5,12 @@ const exec = require('child_process').execSync
 const fs = require('fs')
 const download = require('download')
 
+// cron: 12 8 * * *
 const $ = new Env('爱奇艺会员签到');
 const notify = $.isNode() ? require('../sendNotify') : '';
+
 // 公共变量
+// IQIYI_COOKIE	爱奇艺Cookie	F12控制台执行console.log(document.cookie)电脑版有效期三个月
 const KEY = process.env.iQIYI_COOKIE
 const SEND_KEY = process.env.SEND_KEY
 const UTC8 = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000;
@@ -52,7 +55,7 @@ async function start() {
     if (fs.existsSync(path)) {
         content = fs.readFileSync(path, "utf8");
     }
-    if (content.includes("今日已签到")) {
+    if (content.includes("任务次数已经到达上限")) {
         //重复签到,不推送仅输出，因为每天会签到两次防止抽奖失败.
         console.log("爱奇艺签到-" + content + '\n重复签到，取消推送')
     }else if(SEND_KEY) {
