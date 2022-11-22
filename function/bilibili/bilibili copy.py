@@ -411,6 +411,7 @@ if __name__ == "__main__":
         _bilibili_cookie_list = {cookie.split('=')[0]: cookie.split('=')[-1] for cookie in BILI_COOKIE.split(';')}
     else:
         print("未填写哔哩哔哩账号密码或COOKIE取消运行")
-        exit(0)
-
+        #exit(0)
+    BILI_COOKIE = '_uuid=2F10B522A-F61C-8774-4D5A-109256103ADE21014642infoc; buvid3=70D25038-A1A1-CC12-74ED-0652CE7359C114913infoc; b_nut=1658996415; buvid4=72215294-9A45-6A63-2285-F1A9C487A88214913-022072816-f12qdg2b0m4ZWC27luwIzA==; buvid_fp_plain=undefined; sid=58t3sv1l; DedeUserID=5623800; DedeUserID__ckMd5=da9ccb374f4f1bfd; SESSDATA=99a30c94,1674548445,c2159*71; bili_jct=30720b026a8c0a6b7639be67bb9e3a12; i-wanna-go-back=-1; b_ut=5; buvid_fp=39a93a806da36be2649c097184f94f0e; CURRENT_BLACKGAP=0; blackside_state=0; rpdid=0zbfVGhiqU|16oCjvulz|4x|3w1OgYNl; nostalgia_conf=-1; CURRENT_QUALITY=116; LIVE_BUVID=AUTO4316590892201648; hit-dyn-v2=1; dy_spec_agreed=1; fingerprint3=f879181b72fa2c761dba54d953438171; fingerprint=7e8a64d2ca0a8278996074ec73261751; CURRENT_FNVAL=16; _dfcaptcha=258c602feae6ea5c131a2f3eba7ed681; PVID=1; innersign=0; b_lsid=CF910E3BE_1839EF9C5C6; bp_video_offset_5623800=712873513711566800'
+    _bilibili_cookie_list = {cookie.split('=')[0]: cookie.split('=')[-1] for cookie in BILI_COOKIE.split(';')}
     BiliBiliCheckIn(bilibili_cookie_list=_bilibili_cookie_list).main()
